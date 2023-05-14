@@ -3,9 +3,9 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <main>
+    <main class="container mt-5">
 
         <h1>Welcome to the Quiz App</h1>
-        <RouterLink to="/quiz">Proceed to Quiz</RouterLink>
+        <RouterLink to="/quiz" class="fs-4">Proceed to Quiz</RouterLink>
     </main>
 </template>

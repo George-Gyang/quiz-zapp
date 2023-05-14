@@ -7,13 +7,13 @@ const {quiz} = defineProps(["quiz"])
 <template>
   <div class="p-4 px-md-1 col-md-4">
     <div class="card">
-      <a href="">
+      <RouterLink :to="`/quiz/${quiz.id}`" class="nav-link">
         <img :src="quiz.img" class="card-img-top img-fluid" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ quiz.name }}</h5>
           <p class="card-text">{{ quiz.questions.length }}</p>
         </div>
-      </a>
+      </RouterLink>
     </div>
   </div>
 </template>

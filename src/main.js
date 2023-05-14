@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import Home from "@/views/Home.vue"
 import Quizzes from "@/views/quizzes.vue";
+import QuizView from "@/views/QuizView.vue"
 // BOOTSTRAP CSS
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -21,11 +22,11 @@ const router = createRouter({
       name: "Quiz",
       component: Quizzes,
     },
-    // {
-    //   path: "/quiz/:id",
-    //   name: "",
-    //   component: Quizzes,
-    // },
+    {
+      path: "/quiz/:id",
+      name: "QuizView",
+      component: QuizView,
+    },
     // {
     //     path: "/counter",
     //     name: "Counter",
