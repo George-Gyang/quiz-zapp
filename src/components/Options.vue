@@ -8,7 +8,7 @@ const { options } = defineProps(["options"]);
     <ul>
       <RouterLink to="" class="nav-link text-secondary">
         <li class="nav-link" v-for="option in options" :key="option.id">
-          <div class="form-check">
+          <div class="form-check d-flex align-items-center">
             <input
               class="form-check-input"
               type="radio"
@@ -16,7 +16,7 @@ const { options } = defineProps(["options"]);
               id="flexRadioDefault2"
               checked
             />
-            <label class="form-check-label" for="flexRadioDefault2">
+            <label class="form-check-label option-label fw-bold" for="flexRadioDefault2">
               {{ option.label }}: {{ option.text }}
             </label>
           </div>
@@ -25,3 +25,11 @@ const { options } = defineProps(["options"]);
     </ul>
   </div>
 </template>
+
+
+<style scoped>
+.option-label{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+</style>

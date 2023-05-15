@@ -7,12 +7,11 @@ const {question} = defineProps(["question"]);
 
 <template>
   <div>
-    <div :key="question.id" class="">
-      <p class="display-5">{{ question.text }}</p>
+    <div class="">
+      <p class="fs-2">{{ question.text }}</p>
     </div>
     <Options :options="question.options" />
     <p class="card-text">
-      <small class="text-body-secondary">Last updated 3 mins ago</small>
     </p>
   </div>
 </template>
