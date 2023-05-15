@@ -50,7 +50,7 @@ const seachQuiz =  watch(search, ()=>{
 <template>
   <main>
     <div class="container">
-      <h1 class="text-primary">Hello world!</h1>
+      <h1 class="text-primary text-center my-4">Quizzybyte</h1>
       <div>
         <div class="row align-items-center">
           <div class="col-md-2">
