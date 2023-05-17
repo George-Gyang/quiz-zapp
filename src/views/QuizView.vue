@@ -35,7 +35,7 @@ const barPercentage = computed(() => {
 });
 
 const correctQuestion = ref(0);
-const colorMark = ref("");
+const colorMark = ref("bg-danger");
 
 const handleOptionSelected = (isCorrect) => {
   if (isCorrect) {
