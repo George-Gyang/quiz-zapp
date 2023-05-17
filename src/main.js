@@ -8,8 +8,7 @@ import router from "./router/index";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 
-import { createRouter, createWebHistory } from "vue-router";
-
+import "./assets/main.css"
 // const router = createRouter({
 //   history: createWebHistory(),
 //   routes: [
