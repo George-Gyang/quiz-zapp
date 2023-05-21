@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Home from "./Home.vue";
-import { Icon } from '@iconify/vue';
+import { Icon } from "@iconify/vue";
 
 import { RouterLink } from "vue-router";
 
@@ -81,13 +81,16 @@ const twitterSignOut = () => {
       <h4 class="card-title mb-4 text-center fst-italic text-info">
         sign in with your Account
       </h4>
-      <h1 class="fs-4 mb-3" v-if="userName">
+      <h1 class="fs-5 mb-3" v-if="userName">
         Welcome <br />
         {{ userName }}
       </h1>
       <div v-if="isSignIn" class="">
         <div class="">
-          <div class="d-grid gap-2 mb-3">
+          <div class="text-center">
+            <RouterLink class="" to="/home">Continue to sign in</RouterLink>
+          </div>
+          <div class="d-grid gap-2 my-4">
             <button
               @click="googleSignOut"
               class="btn btn-outline-danger"
@@ -96,9 +99,6 @@ const twitterSignOut = () => {
               log out
             </button>
           </div>
-        </div>
-        <div class="">
-          <RouterLink to="/home">Continue to sign in</RouterLink>
         </div>
       </div>
       <div v-if="!isSignIn" class="">
@@ -109,8 +109,8 @@ const twitterSignOut = () => {
               class="btn btn-outline-secondary"
               type="button"
             >
-            <Icon icon="devicon:google" width="20" />
-              <span class="ms-2" >Sign in with google</span>
+              <Icon icon="devicon:google" width="20" />
+              <span class="ms-2">Sign in with google</span>
             </button>
           </div>
         </div>
@@ -124,7 +124,7 @@ const twitterSignOut = () => {
               type="button"
             >
               <Icon icon="devicon:twitter" width="25" />
-             <span class="ms-2" > Sign in with twitter</span>
+              <span class="ms-2"> Sign in with twitter</span>
             </button>
           </div>
         </div>
