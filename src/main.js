@@ -1,8 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-// import Home from "@/views/Home.vue"
-// import Quizzes from "@/views/quizzes.vue";
-// import QuizView from "@/views/QuizView.vue"
+
 import router from "./router/index";
 // BOOTSTRAP CSS
 import "bootstrap/dist/css/bootstrap.css";

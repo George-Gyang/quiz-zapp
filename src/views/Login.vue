@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from "vue";
+import Home from "./Home.vue";
+import { Icon } from '@iconify/vue';
+
 import { RouterLink } from "vue-router";
 
 import firebaseConfigApp from "../../src/firebase.config";
@@ -8,19 +11,47 @@ import {
   signInWithPopup,
   signOut,
   GoogleAuthProvider,
+  TwitterAuthProvider,
 } from "firebase/auth";
 
 firebaseConfigApp;
 
 // const googleLogin = "lorem";
+// const display = false
 let userName = ref("");
 let isSignIn = ref(false);
 
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 const auth = getAuth();
 
 const handleGoogleSignIn = () => {
-  signInWithPopup(auth, provider)
+  signInWithPopup(auth, googleProvider)
+    .then((result) => {
+      //   console.log(result);
+      userName.value = result.user.displayName;
+      isSignIn.value = true;
+    })
+    .catch((error) => {
+      //   console.log(error);
+    });
+};
+// console.log(userName.value)
+const googleSignOut = () => {
+  signOut(auth)
+    .then(() => {
+      userName.value = "";
+      isSignIn.value = false;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// TEITTER AUTHENTIFICATION
+const twitterProvider = new TwitterAuthProvider();
+
+const handleTwitterSignIn = () => {
+  signInWithPopup(auth, twitterProvider)
     .then((result) => {
       //   console.log(result);
       userName.value = result.user.displayName;
@@ -32,7 +63,7 @@ const handleGoogleSignIn = () => {
       //   console.log(error);
     });
 };
-const googleSignOut = () => {
+const twitterSignOut = () => {
   signOut(auth)
     .then(() => {
       userName.value = "";
@@ -43,18 +74,28 @@ const googleSignOut = () => {
     });
 };
 </script>
-user
 
 <template>
-  <div>
-    <div class="card cards">
-      <h4 class="card-title mb-5">Google Sign in</h4>
-      <h1 v-if="userName">Welcome Mr {{ userName }}</h1>
+  <div class="container">
+    <div class="card mt-5 cards">
+      <h4 class="card-title mb-4 text-center fst-italic text-info">
+        sign in with your Account
+      </h4>
+      <h1 class="fs-4 mb-3" v-if="userName">
+        Welcome <br />
+        {{ userName }}
+      </h1>
       <div v-if="isSignIn" class="">
         <div class="">
-          <button @click="googleSignOut" class="btn btn-primary btn-">
-            log out
-          </button>
+          <div class="d-grid gap-2 mb-3">
+            <button
+              @click="googleSignOut"
+              class="btn btn-outline-danger"
+              type="button"
+            >
+              log out
+            </button>
+          </div>
         </div>
         <div class="">
           <RouterLink to="/home">Continue to sign in</RouterLink>
@@ -62,9 +103,30 @@ user
       </div>
       <div v-if="!isSignIn" class="">
         <div class="">
-          <button @click="handleGoogleSignIn" class="btn btn-primary btn-">
-            sign in
-          </button>
+          <div class="d-grid gap-2 mb-3">
+            <button
+              @click="handleGoogleSignIn"
+              class="btn btn-outline-secondary"
+              type="button"
+            >
+            <Icon icon="devicon:google" width="20" />
+              <span class="ms-2" >Sign in with google</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div v-if="!isSignIn" class="">
+        <div class="">
+          <div class="d-grid gap-2">
+            <button
+              @click="handleTwitterSignIn"
+              class="btn btn-outline-secondary"
+              type="button"
+            >
+              <Icon icon="devicon:twitter" width="25" />
+             <span class="ms-2" > Sign in with twitter</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

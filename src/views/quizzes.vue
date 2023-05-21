@@ -52,11 +52,11 @@ const seachQuiz =  watch(search, ()=>{
     <div class="container">
       <h1 class="text-primary text-center my-4">Quizzybyte</h1>
       <div>
-        <div class="row align-items-center">
-          <div class="col-md-2">
+        <div class="row alignitems-center">
+          <div class="col-md-3">
             <h5 class="me-2">Quiz Search:</h5>
           </div>
-          <div class="col-4">
+          <div class="col col-md-6 px-4">
             <div class="input-group input-group-sm mb-3">
               <input
               v-model.trim="search"

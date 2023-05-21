@@ -1,11 +1,16 @@
 <script setup>
+// import login from "./login.vue";
 import { RouterLink } from "vue-router";
+
+const {userName} = defineProps(["userName"])
+
+// console.log(userName.value)
 </script>
 
 <template>
   <main class="container behind mt-5">
     <div class="rounded-5 landing-col p-5" style="max-width: 600px;">
-      <h1 class="text-primary text-center">Quizzybyte</h1>
+      <h1 class="text-primary text-center mb-2">Quizzybyte</h1>
       <div class="landing">
         <div class="">
           <h3 class="text-center fs-2 mb-5">Test your Quiz-Abilty</h3>
