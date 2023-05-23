@@ -2,6 +2,7 @@
 import {ref, watch} from "vue"
 import RawData from "../components/data/RawData.json"
 import Card from "../components/Card.vue";
+import QuizApi from "./QuizApi.vue";
 
 const quizzes = ref(RawData)
 
@@ -74,5 +75,6 @@ const seachQuiz =  watch(search, ()=>{
         </div>
       </div>
     </div>
+    <QuizApi/>
   </main>
 </template>
